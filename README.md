@@ -14,7 +14,7 @@ React-native socail/smart Calendar App
 
 **Dependiencies List**
 1. Native-base : Used for templating, has a bunch of useful components. 
-2. Wix : React-native-calendars
+2. Wix : React-native-calendars : $ npm install --save react-native-calendars
 
 **Future**
 1. Wix : React-native-navtigation- useful for navigating differnet views. 
