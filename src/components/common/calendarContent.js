@@ -6,10 +6,8 @@ import {
 } from 'react-native';
 import { Agenda } from 'react-native-calendars';
 
-// CLASSE NAMES MUST BE CAPITAL IN REACT-NATIVE TOOK ME FUCKING 1 HOUR TO FIGURE THAT OUT
-class CalendarContent extends Component {
+class calendarContent extends Component {
 
-    // example on how to populate the Agenda, taken from wix github page
     constructor(props) {
         super(props);
         this.state = {
@@ -17,7 +15,22 @@ class CalendarContent extends Component {
         };
     }
 
-    // this loads random items into the
+    render() {
+        return (
+            <Agenda
+                items={this.state.items}
+                loadItemsForMonth={this.loadItems.bind(this)}
+                selected={'2017-05-16'}
+                renderItem={this.renderItem.bind(this)}
+                renderEmptyDate={this.renderEmptyDate.bind(this)}
+                rowHasChanged={this.rowHasChanged.bind(this)}
+            // monthFormat={'yyyy'}
+            //theme={{calendarBackground: 'red'}}
+            //renderDay={(day, item) => (<Text>{day ? day.day: 'item'}</Text>)}
+            />
+        );
+    }
+
     loadItems(day) {
         setTimeout(() => {
             for (let i = -15; i < 85; i++) {
@@ -40,8 +53,20 @@ class CalendarContent extends Component {
             this.setState({
                 items: newItems
             });
-        }, 50);
+        }, 1000);
         // console.log(`Load Items for ${day.year}-${day.month}`);
+    }
+
+    renderItem(item) {
+        return (
+            <View style={[styles.item, { height: item.height }]}><Text>{item.name}</Text></View>
+        );
+    }
+
+    renderEmptyDate() {
+        return (
+            <View style={styles.emptyDate}><Text>This is empty date!</Text></View>
+        );
     }
 
     rowHasChanged(r1, r2) {
@@ -51,35 +76,6 @@ class CalendarContent extends Component {
     timeToString(time) {
         const date = new Date(time);
         return date.toISOString().split('T')[0];
-    }
-
-    renderEmptyDate() {
-        return (
-            <View style={styles.emptyDate}><Text>This is empty date!</Text></View>
-        );
-    }
-
-    renderItem(item) {
-        return (
-            <View style={[styles.item, { height: item.height }]}><Text>{item.name}</Text></View>
-        );
-    }
-
-    render() {
-        return (
-            <Agenda
-                items={this.state.items}
-                loadItemsForMonth={this.loadItems.bind(this)}
-                {/*gets the current date, sets it as selected */}
-                selected={new Date().toJSON().slice(0, 10).replace(/-/g, '/')}
-                renderItem={this.renderItem.bind(this)}
-                renderEmptyDate={this.renderEmptyDate.bind(this)}
-                rowHasChanged={this.rowHasChanged.bind(this)}
-            // monthFormat={'yyyy'}
-            //theme={{calendarBackground: 'red'}}
-            //renderDay={(day, item) => (<Text>{day ? day.day: 'item'}</Text>)}
-            />
-        );
     }
 }
 
@@ -99,5 +95,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export { CalendarContent };
-
+export { calendarContent };
