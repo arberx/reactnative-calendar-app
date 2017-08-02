@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Header, Left, Body, Title } from 'native-base';
 
-class HeaderCal extends Component {
+class headerCal extends Component {
     render() {
         return (
             <Container>
@@ -18,4 +18,4 @@ class HeaderCal extends Component {
 }
 
 //export if you use export *, must be an object
-export { HeaderCal };
+export { headerCal };
