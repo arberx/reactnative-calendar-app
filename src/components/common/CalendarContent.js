@@ -40,7 +40,7 @@ class CalendarContent extends Component {
             this.setState({
                 items: newItems
             });
-        }, 50);
+        }, 1000);
         // console.log(`Load Items for ${day.year}-${day.month}`);
     }
 
