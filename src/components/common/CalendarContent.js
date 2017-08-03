@@ -70,8 +70,7 @@ class CalendarContent extends Component {
             <Agenda
                 items={this.state.items}
                 loadItemsForMonth={this.loadItems.bind(this)}
-                {/*gets the current date, sets it as selected */}
-                selected={new Date().toJSON().slice(0, 10).replace(/-/g, '/')}
+                 selected={new Date().toJSON().slice(0, 10).replace(/-/g, '/')}
                 renderItem={this.renderItem.bind(this)}
                 renderEmptyDate={this.renderEmptyDate.bind(this)}
                 rowHasChanged={this.rowHasChanged.bind(this)}
