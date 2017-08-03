@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { Container } from 'native-base';
+import EventButton from './AddEventButton';
+
 import {
     Text,
     View,
@@ -67,6 +70,7 @@ class CalendarContent extends Component {
 
     render() {
         return (
+            <Container>
             <Agenda
                 items={this.state.items}
                 loadItemsForMonth={this.loadItems.bind(this)}
@@ -78,6 +82,8 @@ class CalendarContent extends Component {
             //theme={{calendarBackground: 'red'}}
             //renderDay={(day, item) => (<Text>{day ? day.day: 'item'}</Text>)}
             />
+            <EventButton />
+            </Container>
         );
     }
 }
