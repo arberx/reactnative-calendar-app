@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { } from 'react-native';
-import { HeaderCal } from './components/common';
+// import { HeaderCal } from './components/common';
+import Welcome from './components/login/Welcome';
 
-class App extends Component {
+export default class App extends Component {
     render() {
         return (
-            <HeaderCal headerText="CalendAR" />
+            // <HeaderCal headerText="CalendAR" />
+            <Welcome />
         );
     }
 }
-
-export default App;
