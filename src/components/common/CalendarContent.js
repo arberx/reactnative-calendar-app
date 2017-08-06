@@ -22,6 +22,9 @@ class CalendarContent extends Component {
 
     // this loads random items into the
     loadItems(day) {
+        //loggin to see output
+        console.log('LoadItems called');
+
         setTimeout(() => {
             for (let i = -15; i < 85; i++) {
                 const time = day.timestamp + i * 24 * 60 * 60 * 1000;
@@ -40,6 +43,8 @@ class CalendarContent extends Component {
             //console.log(this.state.items);
             const newItems = {};
             Object.keys(this.state.items).forEach(key => { newItems[key] = this.state.items[key]; });
+            // console log
+            console.log(newItems);
             this.setState({
                 items: newItems
             });
