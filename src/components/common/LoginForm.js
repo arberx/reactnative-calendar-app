@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { } from 'react-native';
 import firebase from 'firebase';
 import { Container, Content, Form, Item, Input, Button, Label, Text, Spinner } from 'native-base';
-import { HeaderCal } from './HeaderCal';
+
 
 class LoginForm extends Component {
     // set state, used for textinput, error handling, and loading
@@ -20,23 +20,29 @@ class LoginForm extends Component {
         // returns a promise, asynchrounous request
         firebase.auth().signInWithEmailAndPassword(email, password)
             .then(this.onLoginSuccess.bind(this))
-            .catch(() => {
+            .catch((error) => {
                 //if authentication has failed, create the user and password
-                firebase.auth().createUserWithEmailAndPassword(email, password)
-                .then(this.onLoginSuccess.bind(this))
-                .catch(this.onLoginFailed.bind(this));
+                // firebase.auth().createUserWithEmailAndPassword(email, password)
+                // .then(this.onLoginSuccess.bind(this))
+                // .catch(this.onLoginFailed.bind(this));
+                this.onLoginFailed(error);
             });
     }
 
     //login failed
-    onLoginFailed() {
-        this.setState({ error: 'Authentication Failed', loading: false });
+    onLoginFailed(error) {
+        if (error.code === 'auth/wrong-password') {
+            const temp = 'The password is incorrect';
+            this.setState({ error: temp, loading: false });
+        } else {
+            this.setState({ error: error.message, loading: false });
+        }
     }
 
     //sets state variables back to normal
     onLoginSuccess() {
         this.setState({
-            email:'',
+            email: '',
             password: '',
             error: '',
             loading: false
@@ -51,13 +57,15 @@ class LoginForm extends Component {
 
         // else return the button
         return (
+
         <Button
             block
             //becuase this will happen something, we must bind the context to this
             onPress={this.onButtonPress.bind(this)}
         >
             <Text>Login</Text>
-        </Button>);
+        </Button>
+    );
     }
 
     render() {
