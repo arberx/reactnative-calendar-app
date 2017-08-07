@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { } from 'react-native';
 import firebase from 'firebase';
+import { Actions } from 'react-native-router-flux';
 import { Container, Content, Form, Item, Input, Button, Label, Text, Spinner } from 'native-base';
 
 
@@ -21,12 +22,12 @@ class LoginForm extends Component {
         firebase.auth().signInWithEmailAndPassword(email, password)
             .then(this.onLoginSuccess.bind(this))
             .catch((error) => {
-                //if authentication has failed, create the user and password
-                // firebase.auth().createUserWithEmailAndPassword(email, password)
-                // .then(this.onLoginSuccess.bind(this))
-                // .catch(this.onLoginFailed.bind(this));
                 this.onLoginFailed(error);
             });
+    }
+
+    onSignUpPress() {
+        Actions.signUp();
     }
 
     //login failed
@@ -57,14 +58,22 @@ class LoginForm extends Component {
 
         // else return the button
         return (
-
-        <Button
-            block
-            //becuase this will happen something, we must bind the context to this
-            onPress={this.onButtonPress.bind(this)}
-        >
-            <Text>Login</Text>
-        </Button>
+        <Container>
+            <Button
+                block
+                //becuase this will happen something, we must bind the context to this
+                onPress={this.onButtonPress.bind(this)}
+            >
+                <Text>Login</Text>
+            </Button>
+            <Button
+                block info
+                //becuase this will happen something, we must bind the context to this
+                onPress={this.onSignUpPress.bind(this)}
+            >
+                <Text>Sign Up</Text>
+            </Button>
+        </Container>
     );
     }
 
@@ -96,7 +105,6 @@ class LoginForm extends Component {
                     <Text style={Styles.errorTextStyle}>
                         {this.state.error}
                     </Text>
-                    {/*FIXME, Login in button IS currently on the bottom  */}
                     {/* Helper that returns some amount of JSX  */}
                    { this.renderButton() }
                 </Container>

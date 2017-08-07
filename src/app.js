@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Spinner } from 'native-base';
 import firebase from 'firebase';
-import { HeaderCal, CalendarContent, LoginForm } from './components/common';
+import { HeaderCal, CalendarContent } from './components/common';
 import RouterComponent from './Router';
 
 class App extends Component {

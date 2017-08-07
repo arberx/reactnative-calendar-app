@@ -2,3 +2,4 @@
 export * from './HeaderCal';
 export * from './CalendarContent';
 export * from './LoginForm';
+export * from './SignUpForm';
