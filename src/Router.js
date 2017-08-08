@@ -1,6 +1,6 @@
 import React from 'react';
 import { Router, Scene } from 'react-native-router-flux';
-import { LoginForm, SignUpForm } from './components/common';
+import { LoginForm, SignUpForm } from './components/';
 
 const RouterComponent = () => {
     return (

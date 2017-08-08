@@ -1,8 +1,29 @@
 import React, { Component } from 'react';
-import { Container, Spinner } from 'native-base';
+
+import { Platform } from 'react-native';
+import { Container, Root, Spinner } from 'native-base';
+import { StackNavigator } from 'react-navigation';
+
 import firebase from 'firebase';
-import { HeaderCal, CalendarContent } from './components/common';
+import { CalendarContent, HeaderCal, Settings, Sidebar } from './components/';
 import RouterComponent from './Router';
+import Drawer from './Drawer';
+
+const AppNavigator = StackNavigator(
+    {
+        Drawer: { screen: Drawer },
+        Sidebar: { screen: Sidebar },
+
+        // HeaderCal: { screen: HeaderCal },
+
+        CalendarContent: { screen: CalendarContent },
+        Settings: { screen: Settings }
+    },
+    {
+        initialRouteName: 'Drawer',
+        headerMode: 'none',
+    }
+);
 
 class App extends Component {
     state = { loggedIn: null, user: null };
@@ -33,8 +54,12 @@ class App extends Component {
             case true:
                 return (
                     <Container>
-                        <HeaderCal headerText={'Welcome ' + this.state.user.email + '!'} />
-                        <CalendarContent />
+                        <Root>
+                            <HeaderCal />
+                            <AppNavigator />
+                        </Root>
+                        {/* <HeaderCal headerText={'Welcome ' + this.state.user.email + '!'} />
+                        <CalendarContent /> */}
                     </Container>
                 );
 
@@ -51,7 +76,7 @@ class App extends Component {
     render() {
         return (
             <Container>
-            { this.renderContent() }
+                { this.renderContent() }
             </Container>
         );
     }
