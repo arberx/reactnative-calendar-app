@@ -1,5 +1,6 @@
 # calendAR
-React-native Social/Smart Calendar App
+React-Native Social/Smart Calendar App:
+Application made to play around with React-Native, and Firebase. 
 
 **Getting Started:**
 1. Make sure React-Native is properly installed on your machine, run "react-native init test_project", start an emulator and see if it works, if so, clone repo and continue.
