@@ -1,6 +1,5 @@
 # calendAR
-React-native socail/smart Calendar App
-
+React-native Social/Smart Calendar App
 
 **Getting Started:**
 1. Make sure React-Native is properly installed on your machine, run "react-native init test_project", start an emulator and see if it works, if so, clone repo and continue.
