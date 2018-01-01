@@ -8,7 +8,7 @@ Application made to play around with React-Native, and Firebase.
 2. I used visual studios code, if you want to use a different text editor, you must figure out the linter.
   -For Vis Code, download the extention "eslint". Then in your project directory, type: "npm install --save-dev eslint-config --rallycoding". This will allow the editor to give your styling guides for react-native
 
-3. We are going to use "native-base" which has a bunch of templated compenent for us to use to create the visuals, there is an example usage currently on the app. To install run " npm install native-base --save", then "react-native link"
+3. Install "native-base" which has a bunch of templated compenents to create the visuals, there is an example usage currently on the app. To install run " npm install native-base --save", then "react-native link"
 
 4. You should now be able to run the project with ios or android.
 
