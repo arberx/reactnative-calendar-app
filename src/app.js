@@ -10,12 +10,12 @@ class App extends Component {
     // my firebase route: arber
     componentWillMount() {
         firebase.initializeApp({
-            apiKey: 'AIzaSyAKmk_uDhBpUe9ZIoV_2COCoc0kpfVJHh0',
-            authDomain: 'calendar-7e610.firebaseapp.com',
-            databaseURL: 'https://calendar-7e610.firebaseio.com',
-            projectId: 'calendar-7e610',
-            storageBucket: 'calendar-7e610.appspot.com',
-            messagingSenderId: '319194412032'
+            apiKey: /****INSERT****/
+            authDomain: /****INSERT****/
+            databaseURL: /****INSERT****/
+            projectId: /****INSERT****/
+            storageBucket: /****INSERT****/
+            messagingSenderId: /****INSERT****/
         });
 
         firebase.auth().onAuthStateChanged((user) => {
