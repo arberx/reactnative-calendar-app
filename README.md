@@ -2,6 +2,10 @@
 React-Native Social/Smart Calendar App:
 Application made to play around with React-Native, and Firebase. 
 
+### Warning
+
+No guarantees this works, whatsoever. Last time I actually ran this was in 2017. I try to keep the libraries up-to-date. 
+
 **Getting Started:**
 1. Make sure React-Native is properly installed on your machine, run "react-native init test_project", start an emulator and see if it works, if so, clone repo and continue.
 
